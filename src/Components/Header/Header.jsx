@@ -2,18 +2,26 @@ import React from "react";
 import "./Header.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
+    const navigate= useNavigate()
+    const handleHome=()=> {
+        navigate("/")
+    }
+    const onClick = ()=> {
+        navigate("/")
+    }
     return (
         <nav className="navbar">
             <div className="nav-logo">BrdStore</div>
             
             <ul className="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li onClick={handleHome}>Home</li>
+                <li onClick={onClick}>Products</li>
+                <li>About</li>
+                <li>Contact</li>
             </ul>
             <div className="cart_section">
                 < FaShoppingCart />
