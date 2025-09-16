@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./ProductDetail.css"
 import axios from 'axios'
 import {  useParams } from 'react-router-dom'
+import { AppContext } from '../utiils/AppContext'
 const ProductDetail = () => {
     const BaseUrl = "https://fakestoreapi.com/products"
        const [product,setProduct] = useState([])
        const {productid} = useParams();
 
-
+      const {addToCart} = useContext(AppContext)
     const getAProduct = async ()=> {
         try {
             const res = await axios.get(`${BaseUrl}/${productid}`)
@@ -34,7 +35,7 @@ const ProductDetail = () => {
                    {product?.description}
                 </p>
                 <p className="product-price">${product?.price}</p>
-                <button className="add-to-cart">Add to Cart</button>
+                <button className="add-to-cart" onClick={()=> addToCart(product)}>Add to Cart</button>
             </div>
         </div>
     )

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const ProductCard = ({item}) => {
    const navigate=useNavigate()
     return (
-        <div className='product_wrapper'>
+        <div className='product_wrapper' onClick= {()=> navigate(`/products/${item.id}`)}>
             <div className='img_wrapper'>
                 <img src={item.image}/>
             </div>
@@ -22,7 +22,7 @@ const ProductCard = ({item}) => {
                     </div>
                     <p>$ {item.price}</p>
                 </div>
-                <button onClick= {()=> navigate(`/products/${item.id}`)}>Add to Cart</button>
+                <button >Add to Cart</button>
             </div>
 
         </div>

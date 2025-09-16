@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import ProductDetail from '../pages/ProductDetail'
 import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
+import Cart from '../pages/Cart'
 const Router = () => {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ const Router = () => {
         <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/> 
             <Route path="products/:productid" element={<ProductDetail/>}/>
+            <Route path='/cart' element={<Cart/>}/>
         </Route>
         <Route path="login" element={<Login/>}/>
         <Route path="signup" element={<SignUp/>}/>
